@@ -111,7 +111,7 @@ export function ProfileForm() {
 
       // Update local user data
       const updatedUser = { ...user, username: values.username, email: values.email }
-      localStorage.setItem("anchor_user", JSON.stringify(updatedUser))
+      localStorage.setItem("invoices_user", JSON.stringify(updatedUser))
 
       // Force a page refresh to update the auth context
       window.location.reload()

@@ -742,9 +742,9 @@ export function InvoicePreview({
               <p className="text-lg font-semibold text-gray-700">#{editableInvoice.invoiceNumber}</p>
             </div>
             <div className="text-right">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Anchor Accounting</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Invoices</h2>
               <p className="text-gray-600">Professional Accounting Services</p>
-              <p className="text-gray-600">accounting@anchor.co.za</p>
+              <p className="text-gray-600">accounting@invoices.co.za</p>
               <p className="text-gray-600">+27 11 123 4567</p>
               <p className="text-gray-600">Cape Town, South Africa</p>
             </div>

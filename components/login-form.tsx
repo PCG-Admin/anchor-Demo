@@ -86,7 +86,7 @@ export function LoginForm() {
           <h1 className="text-2xl font-semibold text-gray-900 mb-2">Login</h1>
           <div className="mb-2">
             <span className="bg-[#1e3a5f] text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
-              ANCHOR DEMO
+              INVOICES DEMO
             </span>
           </div>
           {process.env.NEXT_PUBLIC_ENVIRONMENT !== "production" && (

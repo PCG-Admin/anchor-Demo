@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Anchor Accounting - Professional Time & Billing Management",
+  title: "Invoices - Professional Time & Billing Management",
   description: "Modern accounting practice management system",
   generator: "v0.dev",
 }

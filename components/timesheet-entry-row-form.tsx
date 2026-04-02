@@ -20,6 +20,7 @@ import { getServiceItems, type ServiceItem, getOrCreateClientId } from "@/lib/su
 import { getSupabaseClients } from "@/lib/supabase-client-storage"
 import type { ClientInfo } from "../types/invoice"
 import { toast } from "@/components/ui/use-toast"
+import { useAuth } from "@/contexts/auth-context"
 
 const formSchema = z.object({
   date: z.date({
@@ -64,6 +65,8 @@ interface TimesheetEntryRowFormProps {
 
 export function TimesheetEntryRowForm({ onSubmit, isEditing = false, onCancel }: TimesheetEntryRowFormProps) {
   const formContext = useFormContext<FormValues>()
+  const { user } = useAuth()
+  const isAdmin = user?.role === "admin"
   const [openClientSelect, setOpenClientSelect] = useState(false)
   const [openDatePicker, setOpenDatePicker] = useState(false)
   const [clients, setClients] = useState<ClientInfo[]>([])
@@ -670,7 +673,7 @@ export function TimesheetEntryRowForm({ onSubmit, isEditing = false, onCancel }:
                     onChange={(e) => field.onChange(Number.parseFloat(e.target.value) || 0)}
                     onBlur={field.onBlur}
                     name={field.name}
-                    disabled={watchedActivity === "Sub-Contractor"}
+                    disabled={watchedActivity === "Sub-Contractor" || !isAdmin}
                     className="h-9 w-full min-w-[120px] pl-3 text-left tabular-nums border border-slate-200 shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-400 disabled:cursor-not-allowed"
                   />
                 </FormControl>

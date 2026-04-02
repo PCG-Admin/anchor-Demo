@@ -29,13 +29,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check if user is already logged in (from localStorage)
     if (typeof window !== "undefined") {
-      const savedUser = localStorage.getItem("anchor_user")
+      const savedUser = localStorage.getItem("invoices_user")
       if (savedUser) {
         try {
           setUser(JSON.parse(savedUser))
         } catch (error) {
           console.error("Error parsing saved user:", error)
-          localStorage.removeItem("anchor_user")
+          localStorage.removeItem("invoices_user")
         }
       }
     }
@@ -76,7 +76,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(userData)
 
       if (typeof window !== "undefined") {
-        localStorage.setItem("anchor_user", JSON.stringify(userData))
+        localStorage.setItem("invoices_user", JSON.stringify(userData))
       }
 
       console.log("✅ Login successful for user:", userData)
@@ -90,7 +90,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     setUser(null)
     if (typeof window !== "undefined") {
-      localStorage.removeItem("anchor_user")
+      localStorage.removeItem("invoices_user")
     }
   }
 
